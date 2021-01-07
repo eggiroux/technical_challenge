@@ -1,38 +1,37 @@
 {
   "name": "technical_challenge_aldo",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Description:",
+  "main": "index.js",
+  "scripts": {
+    "webpack-dev-server": "webpack-dev-server",
+    "dev": "webpack-dev-server --mode=development",
+    "prod": "webpack --mode=production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
+    "style-loader": "^2.0.0",
+    "styled-components": "^5.2.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^4.5.1",
+    "path": "^0.12.7",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.1"
   }
 }
