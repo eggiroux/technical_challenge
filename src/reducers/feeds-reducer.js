@@ -7,6 +7,12 @@ const initialState = {
 
 export default function feedsReducer(state = initialState, action) {
   switch (action.type) {
+    case "FEED_DATA_LOADING": {
+      console.log(action);
+      return produce(state, (draftState) => {
+        draftState.status = "loading";
+      });
+    }
     case "FEED_DATA_SUCCESS": {
       console.log(action);
       return produce(state, (draftState) => {

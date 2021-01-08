@@ -14,8 +14,10 @@ app.use(bodyParser.json());
 
 app.get("/tweets/:query", async (req, res, next) => {
   const { query } = req.params;
+  const formattedQuery = query.replace(" ", "%20");
+
   const response = await fetch(
-    `https://api.twitter.com/2/tweets/search/recent?query=${query}`,
+    `https://api.twitter.com/2/tweets/search/recent?query=${formattedQuery}`,
     {
       method: "GET",
       headers: {

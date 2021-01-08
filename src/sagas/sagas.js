@@ -6,6 +6,7 @@ export function* watchFetchFeed() {
 
 function* fetchFeedAsync(action) {
   try {
+    yield put({ type: "FEED_DATA_LOADING" });
     const feedData = yield call(getData, action.url);
 
     yield put({ type: "FEED_DATA_SUCCESS", feedData });
