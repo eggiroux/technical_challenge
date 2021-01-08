@@ -8,7 +8,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(requestFeedData("http://api.open-notify.org/iss-now.json"));
+    dispatch(requestFeedData("/tweets/puppies"));
   }, [dispatch]);
   return <Wrapper>This is my app component</Wrapper>;
 };
