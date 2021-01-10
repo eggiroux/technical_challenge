@@ -25,6 +25,7 @@ export const LoadingSpinner = ({ size = "30px" }) => {
 
 const Wrapper = styled.div`
   margin: 0 auto;
+  margin-top: 24px;
   width: 100%;
 `;
 

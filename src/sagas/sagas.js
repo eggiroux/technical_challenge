@@ -8,14 +8,16 @@ function* fetchFeedAsync(action) {
   try {
     yield put({ type: "FEED_DATA_LOADING" });
     const feedData = yield call(getData, action.url);
-    console.log(feedData);
+    if (!feedData.includes) {
+      throw new Error("No tweets found");
+    }
+
     yield put({
       type: "FEED_DATA_SUCCESS",
       data: feedData.data,
       expansion: feedData.includes,
     });
   } catch (err) {
-    console.log(err);
     yield put({ type: "FEED_DATA_FAILURE", err });
   }
 }

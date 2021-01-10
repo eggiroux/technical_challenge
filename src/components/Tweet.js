@@ -6,7 +6,7 @@ export const Tweet = ({ tweet, name, handle }) => {
   return (
     <Wrapper>
       <Name>
-        {name} @<Handle>{handle}</Handle>
+        {name && name} @<Handle>{handle}</Handle>
       </Name>
       {tweet.text}
       <Date>

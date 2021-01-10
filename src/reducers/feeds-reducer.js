@@ -4,6 +4,7 @@ const initialState = {
   status: "loading",
   feed: null,
   users: null,
+  error: null,
 };
 
 export default function feedsReducer(state = initialState, action) {
@@ -11,6 +12,8 @@ export default function feedsReducer(state = initialState, action) {
     case "FEED_DATA_LOADING": {
       return produce(state, (draftState) => {
         draftState.status = "loading";
+        draftState.feed = null;
+        draftState.users = null;
       });
     }
     case "FEED_DATA_SUCCESS": {
@@ -22,9 +25,10 @@ export default function feedsReducer(state = initialState, action) {
       });
     }
     case "FEED_DATA_FAILURE": {
-      console.log(action);
+      //console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "error";
+        draftState.error = action.err.message;
       });
     }
 
