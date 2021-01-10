@@ -4,7 +4,7 @@ import styled from "styled-components";
 import GlobalStyles from "./components/GlobalStyles";
 
 import { FeedSwitcher } from "./components/FeedSwitcher";
-import { FeedView } from "./a_views/FeedView";
+import { FeedView } from "./views/FeedView";
 
 export const App = () => {
   return (

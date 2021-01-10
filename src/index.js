@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "regenerator-runtime/runtime";
 
-import { store } from "./a_store/store";
+import { store } from "./store/store";
 import { App } from "./App";
 
 ReactDOM.render(
