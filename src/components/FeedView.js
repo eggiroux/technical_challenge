@@ -22,5 +22,6 @@ export const FeedView = () => {
 };
 
 const Wrapper = styled.div`
+  margin-top: 12px;
   height: 100%;
 `;

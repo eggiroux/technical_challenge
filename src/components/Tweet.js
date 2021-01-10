@@ -10,4 +10,8 @@ const Wrapper = styled.div`
   padding: 8px;
   background-color: white;
   border-radius: 6px;
+
+  &:hover {
+    background-color: hsl(0deg, 0%, 97%);
+  }
 `;

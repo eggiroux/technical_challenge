@@ -38,7 +38,7 @@ export const FeedSwitcher = () => {
   return (
     <Wrapper>
       <ButtonsArea>
-        <Switch
+        <SwitchTopicButton
           onClick={() => {
             setActiveFeed(1);
           }}
@@ -46,8 +46,8 @@ export const FeedSwitcher = () => {
         >
           {activeFeed === 1 ? "Showing: " : "Switch to:"}
           <TopicP>{topic1}</TopicP>
-        </Switch>
-        <Switch
+        </SwitchTopicButton>
+        <SwitchTopicButton
           onClick={() => {
             setActiveFeed(2);
           }}
@@ -55,18 +55,19 @@ export const FeedSwitcher = () => {
         >
           {activeFeed === 2 ? "Showing: " : "Switch to:"}
           <TopicP>{topic2}</TopicP>
-        </Switch>
+        </SwitchTopicButton>
       </ButtonsArea>
 
-      <form
+      <StyledForm
         onSubmit={(ev) => {
           ev.preventDefault();
           changeCurrentTopic(topicInput);
         }}
       >
-        <label>{`Change Current Topic (${
-          activeFeed === 1 ? topic1 : topic2
-        })`}</label>
+        <StyledLabel>
+          Change Current Topic{" "}
+          <span>{`(${activeFeed === 1 ? topic1 : topic2})`}</span>
+        </StyledLabel>
         <TopicInput
           type={"text"}
           placeholder={`New Topic`}
@@ -75,8 +76,8 @@ export const FeedSwitcher = () => {
             setTopicInput(ev.target.value);
           }}
         ></TopicInput>
-        <button type={"submit"}>Go!</button>
-      </form>
+        <StyledButton type={"submit"}>Go!</StyledButton>
+      </StyledForm>
     </Wrapper>
   );
 };
@@ -85,8 +86,11 @@ const Wrapper = styled.div`
   padding: 16px;
   position: sticky;
   top: 0;
-  background-color: grey;
+  background-color: white;
   z-index: 2;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-bottom: 1px solid lightgrey;
 `;
 
 const ButtonsArea = styled.div`
@@ -95,17 +99,25 @@ const ButtonsArea = styled.div`
   justify-content: space-between;
 `;
 
-const Switch = styled.button`
+const StyledButton = styled.button`
+  margin-left: 2px;
+  height: 28px;
+  border-radius: 6px;
+`;
+
+const SwitchTopicButton = styled.button`
   padding: 6px 8px;
   border-radius: 6px;
 
   &:hover {
     cursor: pointer;
+    transform: scale(1.12);
+    transition: all 120ms;
   }
 
   &:disabled {
     color: black;
-    border: 1px solid white;
+    border: 1px solid grey;
     &:hover {
       cursor: default;
     }
@@ -123,4 +135,15 @@ const TopicInput = styled.input`
   width: 250px;
   border-radius: 6px;
   outline: none;
+`;
+
+const StyledForm = styled.form`
+  margin-top: 12px;
+`;
+
+const StyledLabel = styled.label`
+  & span {
+    font-size: 0.8rem;
+    color: grey;
+  }
 `;
