@@ -76,7 +76,9 @@ export const FeedSwitcher = () => {
             setTopicInput(ev.target.value);
           }}
         ></TopicInput>
-        <StyledButton type={"submit"}>Go!</StyledButton>
+        <StyledButton type={"submit"} disabled={topicInput.length <= 1}>
+          Go!
+        </StyledButton>
       </StyledForm>
     </Wrapper>
   );
@@ -103,6 +105,10 @@ const StyledButton = styled.button`
   margin-left: 2px;
   height: 28px;
   border-radius: 6px;
+
+  &:disabled {
+    color: darkgrey;
+  }
 `;
 
 const SwitchTopicButton = styled.button`

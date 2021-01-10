@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import GlobalStyles from "./Components/GlobalStyles";
+import GlobalStyles from "./components/GlobalStyles";
 
-import { FeedSwitcher } from "./Components/FeedSwitcher";
-import { FeedView } from "./Views/FeedView";
+import { FeedSwitcher } from "./components/FeedSwitcher";
+import { FeedView } from "./views/FeedView";
 
 export const App = () => {
   return (

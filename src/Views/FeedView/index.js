@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { useSelector } from "react-redux";
 
-import { LoadingSpinner } from "../../Components/LoadingSpinner";
+import { LoadingSpinner } from "../../components/LoadingSpinner";
 import { Tweet } from "./Tweet";
 
 export const FeedView = () => {

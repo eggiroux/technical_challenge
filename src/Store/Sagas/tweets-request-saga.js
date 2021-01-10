@@ -15,6 +15,9 @@ function* fetchFeedAsync(action) {
   try {
     yield put({ type: FEED_DATA_LOADING });
     const feedData = yield call(getData, action.url);
+    if (feedData.error) {
+      throw new Error(error.message);
+    }
     if (!feedData.includes) {
       throw new Error("No tweets found");
     }

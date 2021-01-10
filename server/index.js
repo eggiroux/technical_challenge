@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 app.get("/tweets/:query", async (req, res, next) => {
   const { query } = req.params;
+
   const formattedQuery = query.replace(" ", "%20");
 
   const response = await fetch(
