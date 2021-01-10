@@ -12,7 +12,6 @@ export const FeedView = () => {
   if (status === "loading") {
     return <LoadingSpinner />;
   }
-
   if (status === "error") {
     return <Wrapper>{error}</Wrapper>;
   }
