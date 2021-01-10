@@ -10,6 +10,9 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    proxy: {
+      "/": "http://localhost:5678",
+    },
   },
   module: {
     rules: [
