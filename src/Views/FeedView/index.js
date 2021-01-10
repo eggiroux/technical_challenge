@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { useSelector } from "react-redux";
 
-import { LoadingSpinner } from "./LoadingSpinner";
+import { LoadingSpinner } from "../../Components/LoadingSpinner";
 import { Tweet } from "./Tweet";
 
 export const FeedView = () => {
@@ -19,14 +19,13 @@ export const FeedView = () => {
 
   return (
     <Wrapper>
-      {feed.map((tweet, index) => {
+      {feed.map((tweet) => {
         const user = users.find(
           (userArray) => userArray.id === tweet.author_id
         );
 
         if (!user.name) {
-          user.name = "error";
-          user.username = "error";
+          return null;
         }
 
         return (

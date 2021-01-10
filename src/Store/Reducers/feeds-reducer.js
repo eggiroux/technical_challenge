@@ -1,5 +1,11 @@
 import produce from "immer";
 
+import {
+  FEED_DATA_LOADING,
+  FEED_DATA_SUCCESS,
+  FEED_DATA_FAILURE,
+} from "../actions";
+
 const initialState = {
   status: "loading",
   feed: null,
@@ -9,14 +15,12 @@ const initialState = {
 
 export default function feedsReducer(state = initialState, action) {
   switch (action.type) {
-    case "FEED_DATA_LOADING": {
+    case FEED_DATA_LOADING: {
       return produce(state, (draftState) => {
         draftState.status = "loading";
-        draftState.feed = null;
-        draftState.users = null;
       });
     }
-    case "FEED_DATA_SUCCESS": {
+    case FEED_DATA_SUCCESS: {
       //console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "idle";
@@ -24,7 +28,7 @@ export default function feedsReducer(state = initialState, action) {
         draftState.users = action.expansion.users;
       });
     }
-    case "FEED_DATA_FAILURE": {
+    case FEED_DATA_FAILURE: {
       //console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "error";
