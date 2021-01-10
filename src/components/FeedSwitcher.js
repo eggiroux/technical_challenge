@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
-import { requestFeedData } from "../Store/actions";
+import { requestFeedData } from "../store/actions";
 
 export const FeedSwitcher = () => {
   const dispatch = useDispatch();
