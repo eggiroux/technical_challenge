@@ -7,15 +7,23 @@ import { LoadingSpinner } from "./LoadingSpinner";
 import { Tweet } from "./Tweet";
 
 export const FeedView = () => {
-  const { status, feed } = useSelector((state) => state.feeds);
+  const { status, feed, users } = useSelector((state) => state.feeds);
 
   if (status === "loading") {
     return <LoadingSpinner />;
   }
   return (
     <Wrapper>
-      {feed.map((tweet) => {
-        return <Tweet key={tweet.id} tweet={tweet} />;
+      {feed.map((tweet, index) => {
+        const user = users[index];
+        return (
+          <Tweet
+            key={tweet.id}
+            tweet={tweet}
+            name={user.name}
+            handle={user.username}
+          />
+        );
       })}
     </Wrapper>
   );

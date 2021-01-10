@@ -1,6 +1,6 @@
 {
   "short_name": "Twitter feeds",
-  "name": "live twitter feeds",
+  "name": "twitter feeds by topic",
   "icons": [
     {
       "src": "favicon.ico",

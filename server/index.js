@@ -1,4 +1,3 @@
-const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const fetch = require("isomorphic-fetch");
@@ -17,7 +16,9 @@ app.get("/tweets/:query", async (req, res, next) => {
   const formattedQuery = query.replace(" ", "%20");
 
   const response = await fetch(
-    `https://api.twitter.com/2/tweets/search/recent?query=${formattedQuery}`,
+    `https://api.twitter.com/2/tweets/search/recent?query=${formattedQuery}&tweet.fields=created_at&expansions=author_id&user.fields=created_at
+
+`,
     {
       method: "GET",
       headers: {

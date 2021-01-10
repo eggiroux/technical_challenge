@@ -3,6 +3,7 @@ import produce from "immer";
 const initialState = {
   status: "loading",
   feed: null,
+  users: null,
 };
 
 export default function feedsReducer(state = initialState, action) {
@@ -17,6 +18,7 @@ export default function feedsReducer(state = initialState, action) {
       return produce(state, (draftState) => {
         draftState.status = "idle";
         draftState.feed = action.data;
+        draftState.users = action.expansion.users;
       });
     }
     case "FEED_DATA_FAILURE": {
