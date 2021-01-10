@@ -2,22 +2,21 @@ import produce from "immer";
 
 const initialState = {
   status: "loading",
-  feeds: null,
+  feed: null,
 };
 
 export default function feedsReducer(state = initialState, action) {
   switch (action.type) {
     case "FEED_DATA_LOADING": {
-      console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "loading";
       });
     }
     case "FEED_DATA_SUCCESS": {
-      console.log(action);
+      //console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "idle";
-        draftState.token = action.data;
+        draftState.feed = action.data;
       });
     }
     case "FEED_DATA_FAILURE": {

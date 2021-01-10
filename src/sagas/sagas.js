@@ -9,12 +9,14 @@ function* fetchFeedAsync(action) {
     yield put({ type: "FEED_DATA_LOADING" });
     const feedData = yield call(getData, action.url);
 
-    yield put({ type: "FEED_DATA_SUCCESS", feedData });
+    yield put({ type: "FEED_DATA_SUCCESS", data: feedData.data });
   } catch (err) {
+    console.log(err);
     yield put({ type: "FEED_DATA_FAILURE", err });
   }
 }
 
 const getData = (url) => {
-  return fetch(url).then((response) => response.json());
+  //console.log(url);
+  return fetch(url).then((res) => res.json());
 };

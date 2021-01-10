@@ -27,7 +27,7 @@ app.get("/tweets/:query", async (req, res, next) => {
   );
 
   const data = await response.json();
-  res.send(data);
+  res.status(200).send(data);
 });
 
 app.listen(port, function (error) {

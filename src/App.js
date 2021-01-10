@@ -4,12 +4,14 @@ import styled from "styled-components";
 import GlobalStyles from "./components/GlobalStyles";
 
 import { FeedSwitcher } from "./components/FeedSwitcher";
+import { FeedView } from "./components/FeedView";
 
 export const App = () => {
   return (
     <Wrapper>
       <GlobalStyles />
       <FeedSwitcher />
+      <FeedView />
     </Wrapper>
   );
 };
@@ -17,6 +19,7 @@ export const App = () => {
 const Wrapper = styled.div`
   height: 100%;
   max-width: 400px;
+  overflow: scroll;
   margin: auto;
   padding: 0px 16px;
   background-color: grey;
