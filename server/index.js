@@ -1,15 +1,14 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const fetch = require("isomorphic-fetch");
 require("dotenv").config();
 
 const token = process.env.BEARER_TOKEN;
 
 const app = new express();
-const port = 5678;
+const port = process.env.PORT || 5678;
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get("/tweets/:query", async (req, res, next) => {
   const { query } = req.params;

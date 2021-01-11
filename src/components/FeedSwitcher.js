@@ -115,7 +115,7 @@ const SwitchTopicButton = styled.button`
   padding: 6px 8px;
   border-radius: 6px;
 
-  &:hover {
+  &:hover:enabled {
     cursor: pointer;
     transform: scale(1.12);
     transition: all 120ms;
@@ -124,9 +124,6 @@ const SwitchTopicButton = styled.button`
   &:disabled {
     color: black;
     border: 1px solid grey;
-    &:hover {
-      cursor: default;
-    }
   }
 `;
 
