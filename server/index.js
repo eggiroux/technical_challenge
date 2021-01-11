@@ -15,36 +15,40 @@ app.get("/tweets/:query", async (req, res, next) => {
 
   const formattedQuery = query.replace(" ", "%20");
 
-  const response = await fetch(
-    `https://api.twitter.com/2/tweets/search/recent?query=${formattedQuery}&tweet.fields=created_at&expansions=author_id&user.fields=created_at
+  try {
+    const response = await fetch(
+      `https://api.twitter.com/2/tweets/search/recent?query=${formattedQuery}&tweet.fields=created_at&expansions=author_id&user.fields=created_at
 
 `,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-
-  const data = await response.json();
-  if (!data.data) {
-    return res.status(404).send({ error: true, message: "No tweets found." });
-  }
-
-  const tweets = data.data.map((tweet) => {
-    const user = data.includes.users.find(
-      (userObject) => userObject.id === tweet.author_id
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
 
-    if (!user.name) {
-      return null;
+    const data = await response.json();
+    if (!data.data) {
+      return res.status(404).send({ error: true, message: "No tweets found." });
     }
-    tweet.user = user;
-    return tweet;
-  });
 
-  res.status(200).send(tweets);
+    const tweets = data.data.map((tweet) => {
+      const user = data.includes.users.find(
+        (userObject) => userObject.id === tweet.author_id
+      );
+
+      if (!user.name) {
+        return null;
+      }
+      tweet.user = user;
+      return tweet;
+    });
+
+    res.status(200).send(tweets);
+  } catch (err) {
+    res.status(500).send({ error: true, message: "Internal Server Error" });
+  }
 });
 
 app.listen(port, function (error) {
