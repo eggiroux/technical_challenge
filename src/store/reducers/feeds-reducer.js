@@ -9,7 +9,6 @@ import {
 const initialState = {
   status: "loading",
   feed: null,
-  users: null,
   error: null,
 };
 
@@ -21,10 +20,10 @@ export default function feedsReducer(state = initialState, action) {
       });
     }
     case FEED_DATA_SUCCESS: {
+      console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "idle";
         draftState.feed = action.data;
-        draftState.users = action.expansion.users;
       });
     }
     case FEED_DATA_FAILURE: {

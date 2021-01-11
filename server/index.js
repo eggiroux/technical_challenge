@@ -28,7 +28,23 @@ app.get("/tweets/:query", async (req, res, next) => {
   );
 
   const data = await response.json();
-  res.status(200).send(data);
+  if (!data.data) {
+    return res.status(404).send({ error: true, message: "No tweets found." });
+  }
+
+  const tweets = data.data.map((tweet) => {
+    const user = data.includes.users.find(
+      (userObject) => userObject.id === tweet.author_id
+    );
+
+    if (!user.name) {
+      return null;
+    }
+    tweet.user = user;
+    return tweet;
+  });
+
+  res.status(200).send(tweets);
 });
 
 app.listen(port, function (error) {
