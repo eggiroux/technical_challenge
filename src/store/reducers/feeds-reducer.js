@@ -20,7 +20,6 @@ export default function feedsReducer(state = initialState, action) {
       });
     }
     case FEED_DATA_SUCCESS: {
-      console.log(action);
       return produce(state, (draftState) => {
         draftState.status = "idle";
         draftState.feed = action.data;
